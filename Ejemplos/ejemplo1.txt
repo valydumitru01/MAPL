@@ -1,0 +1,76 @@
+/*
+ Hipoteca.txt v1.3
+
+- Programa de ejemplo que muestra las características del lenguaje
+- La sintaxis tiene que ser obligatoriamente la que se muestra en este ejemplo
+
+*/
+//	Con los datos anteriores deberían salir (redondeando) 743 euros de letra al mes
+
+struct Direccion {
+	portal:int;
+	codigoPostal:int;
+};
+struct Persona {
+	edad:int;
+	direccion:Direccion;
+};
+struct Empresa {
+	cif:[9] char;
+	empleados:[10] Persona;
+};
+dobleSuma(a:int, b:int): int {
+	var local:int;
+
+	local = (a + b) * 2;
+	return local * 2;
+}
+escribeEdad(num:int) {
+	printsp microsoft.a.xd[2];
+}
+escribeEdad(num:int) {
+	printsp microsoft.a.xd[2].asd; //FALLO
+}
+var a:int;
+var b:char;
+
+var c:[5] float;
+var h:[3][2] float;  
+
+var d1:Direccion;
+var d2:Direccion;
+
+var f:[6] Persona;
+
+var microsoft: Empresa;
+
+var z:int;	
+main() {
+
+  var local: int;
+  var pepe: Persona;
+  var v:[10] int;
+  
+  pepe.edad = 20;
+  read pepe.direccion.codigoPostal; 
+
+  local = 0;
+  while (local < 10) {
+    v[local] = dobleSuma(<int>(2.0 + h[0][3]), local);
+    local = local + 1;
+  }
+
+  if (a >= 2 && local < 5) {
+    escribeEdad(a + local); 
+    return;
+  } else {
+    b = 'R';
+  }
+
+  if (z != 2) {
+    escribeEdad(v[local]);
+  }
+}
+
+
+

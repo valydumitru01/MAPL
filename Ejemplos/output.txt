@@ -1,0 +1,381 @@
+#source "prog2.txt"
+call main
+halt
+'type Punto{
+'	x:int
+'	y:int
+'}
+'type Nada{
+'}
+#GLOBAL b:int
+	
+'Func
+#line 20
+printFunction: 
+	enter 0
+	
+	'Print
+	#line 13
+	
+	'Print
+	#line 14
+	pushb 32
+	outb
+	
+	'Print
+	#line 15
+	pushb 10
+	outb
+	
+	'Print
+	#line 16
+	push 2
+	outi
+	
+	'Print
+	#line 17
+	push 2
+	outi
+	pushb 32
+	outb
+	
+	'Print
+	#line 18
+	push 2
+	pushb 10
+	outb
+	outi
+	
+	'Print
+	#line 19
+	pusha BP
+	pushi 4
+	addi
+	loadb
+	pushb 10
+	outb
+	outb
+	
+	'Print
+	#line 20
+	pusha BP
+	pushi 5
+	addi
+	loadf
+	outf
+	pushb 32
+	outb
+	
+	ret 0,0,7
+	
+'Func
+#line 40
+statementOperations: 
+	enter 26
+	
+	'Assignment
+	#line 31
+	pusha BP
+	pushi -2
+	addi
+	push 121
+	push 21
+	mod
+	storei
+	
+	'Print
+	#line 32
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushb 10
+	outb
+	outi
+	
+	'Assignment
+	#line 33
+	pusha BP
+	pushi -20
+	addi
+	push 2
+	pushi 6
+	muli
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	push 1
+	storei
+	
+	'Print
+	#line 35
+	pusha BP
+	pushi -20
+	addi
+	push 2
+	pushi 6
+	muli
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	loadi
+	pushb 10
+	outb
+	outi
+	
+	'Assignment
+	#line 37
+	pusha BP
+	pushi -26
+	addi
+	pushi 2
+	addi
+	push 12
+	storei
+	
+	'Assignment
+	#line 38
+	pusha BP
+	pushi -26
+	addi
+	pushi 4
+	addi
+	push 33
+	storei
+	
+	'Assignment
+	#line 39
+	pusha BP
+	pushi -22
+	addi
+	pusha BP
+	pushi -26
+	addi
+	pushi 2
+	addi
+	loadi
+	pusha BP
+	pushi -26
+	addi
+	pushi 4
+	addi
+	loadi
+	addi
+	storei
+	
+	'Print
+	#line 40
+	pusha BP
+	pushi -22
+	addi
+	loadi
+	pushb 10
+	outb
+	outi
+	
+	ret 0,26,0
+	
+'Func
+#line 60
+statementsFunction: 
+	enter 486
+	
+	'Assignment
+	#line 50
+	pusha BP
+	pushi -2
+	addi
+	push 1
+	storei
+	
+	'Assignment
+	#line 51
+	pusha BP
+	pushi -4
+	addi
+	push 2
+	storei
+	
+	'Assignment
+	#line 52
+	pusha BP
+	pushi -6
+	addi
+	push 3
+	storei
+	
+	'Assignment
+	#line 54
+	pusha BP
+	pushi -486
+	addi
+	push 2
+	pushi 48
+	muli
+	addi
+	push 5
+	pushi 4
+	muli
+	addi
+	pushf 2.2
+	storef
+	
+	'Print
+	#line 57
+	pusha BP
+	pushi -486
+	addi
+	push 2
+	pushi 48
+	muli
+	addi
+	push 5
+	pushi 4
+	muli
+	addi
+	loadf
+	outf
+	
+	'Read
+	#line 58
+	pusha BP
+	pushi -2
+	addi
+	ini
+	
+	'Print
+	#line 59
+	pusha BP
+	pushi -4
+	addi
+	loadi
+	outi
+	
+	'Return
+	#line 60
+	push 0
+	ret 2,486,0
+	
+'Func
+#line 77
+whileFunction: 
+	enter 6
+	
+	'Assignment
+	#line 68
+	pusha BP
+	pushi -6
+	addi
+	pushf 2.2
+	storef
+	
+	'Assignment
+	#line 69
+	pusha BP
+	pushi -2
+	addi
+	push 10
+	storei
+	
+	'While
+	#line 72
+	while0:
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	gti
+	jz endwhile0
+	
+	'Assignment
+	#line 71
+	pusha BP
+	pushi -2
+	addi
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	subi
+	storei
+	
+	'Print
+	#line 72
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushb 10
+	outb
+	outi
+	jmp while0
+
+	'Wh
+	
+	'Return
+	#line 77
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	ret 2,6,0
+	
+'Func
+#line 92
+conditionalFunction: 
+	enter 0
+	
+	'If
+	#line 86
+	push 4
+	push 5
+	lti
+	jz else0
+	
+	'Print
+	#line 84
+	push 2
+	outi
+	jmp endif0
+	else0:
+	
+	'Print
+	#line 86
+	push 2
+	push 3
+	addi
+	outi
+	endif0:
+	
+	'If
+	#line 88
+	push 1
+	push 1
+	eqi
+	jz endif1
+	jmp endif1
+	endif1:
+	
+	'Return
+	#line 92
+	push 0
+	ret 2,0,0
+	
+'Func
+#line 100
+main: 
+	enter 0
+	
+	'FuncCall
+	#line 100
+	call statementOperations
+	
+	ret 0,0,0
+'type Inalcanzable{
+'}

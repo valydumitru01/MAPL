@@ -1,0 +1,8 @@
+escribeEdad(num:int) {
+	printsp microsoft
+	.a
+	.as[2]
+	.asd;
+}
+main(){
+}

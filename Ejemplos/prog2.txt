@@ -1,0 +1,105 @@
+struct Punto {
+	 x:int;
+	 y:int;
+};
+struct Nada{
+
+};
+var b:int;
+
+
+
+printFunction(a:int,b:float,c:char){
+		print;
+		printsp;
+		println;
+		print(2);
+		printsp(2);
+		println(2);
+		println(c);
+		printsp(b);
+		
+		
+		
+}
+
+statementOperations(){
+	var a:int;
+	var b:[3][3] int;
+	var c:int;
+	var pto:Punto;
+	a=121%21;
+	println(a);
+	b[2][1]=1;
+	
+	println(b[2][1]);
+	
+	pto.x=12;
+	pto.y=33;
+	c=pto.x+pto.y;
+	println(c);
+}
+statementsFunction():int{
+	var a:int;
+	var b:int;
+	var c:int;
+	var arr:[10][12] float;
+	
+	var nada:Nada;
+	//var error:Inalcanzable;
+	a=1;
+	b=2;
+	c=3;
+	
+	arr[2][5]=2.2;
+	
+	
+	print(arr[2][5]);
+	read(a);
+	print(b);
+	return 0;
+	
+}
+
+
+whileFunction():int{
+	var a:int;
+	var b:float;
+	b=2.2;
+	a=10;
+	while(a>1){
+		a=a-1;
+		println(a);
+	}
+	
+	while(1==2){
+	}
+	return a;
+}
+
+
+
+conditionalFunction():int{
+	if(4<5){
+		print(2);
+	}else{
+		print(2+3);
+	}
+	if(1==1){
+	}else{
+	}
+	
+	return 0;
+}
+
+
+main() {
+	//statementsFunction();
+	//whileFunction();
+	//conditionalFunction();
+	statementOperations();
+	//printFunction(12,12.2,'c');
+	//main();
+}
+struct Inalcanzable{
+};

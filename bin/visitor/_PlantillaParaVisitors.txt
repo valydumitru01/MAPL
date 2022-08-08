@@ -1,0 +1,361 @@
+/**
+ * @generated VGen (for ANTLR) 1.7.2
+ */
+
+
+// package <nombre paquete>;
+
+import ast.*;
+
+/*
+Plantilla para Visitors.
+Para crear un nuevo Visitor cortar y pegar este código y ya se tendría un visitor que compila y
+que al ejecutarlo recorrería todo el árbol (sin hacer nada aún en él).
+Solo quedaría añadir a cada método visit aquello adicional que se quiera realizar sobre su nodo del AST.
+*/
+
+public class <nombre clase> extends DefaultVisitor {
+
+	// ---------------------------------------------------------
+	// Tareas a realizar en cada método visit:
+	//
+	// Si en algún método visit NO SE QUIERE HACER NADA más que recorrer los hijos entonces se puede
+	// borrar (dicho método se heredaría de DefaultVisitor con el código de recorrido).
+	//
+	// Lo siguiente es para cuando se quiera AÑADIR alguna funcionalidad adicional a un visit:
+	//
+	// - El código que aparece en cada método visit es aquel que recorre los hijos. Es el mismo código
+	//		que está implementado en el padre (DefaultVisitor). Por tanto la llamada a 'super.visit' y el
+	//		resto del código del método hacen lo mismo (por ello 'super.visit' está comentado).
+	//
+	// - Lo HABITUAL será borrar todo el código de recorrido dejando solo la llamada a 'super.visit'. De esta
+	//		manera, cada método visit se puede centrar en la tarea que tiene que realizar sobre su nodo del AST
+    //      (dejando que el padre se encargue del recorrido de los hijos).
+	//
+	// - La razón de que aparezca el código de recorrido de los hijos es por si se necesita realizar alguna
+	//		tarea DURANTE el mismo (por ejemplo ir comprobando su tipo). En este caso, ya se tiene implementado
+	//		dicho recorrido y solo habría que incrustar las acciones adicionales en el mismo. En este caso,
+	//		es la llamada a 'super.visit' la que debería ser borrada.
+	// ---------------------------------------------------------
+
+	//	class Program { List<Global> global; }
+	public Object visit(Program node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getGlobal() != null)
+			for (Global child : node.getGlobal())
+				child.accept(this, param);
+
+		return null;
+	}
+
+	//	class Struct { String name;  List<StructField> structfield; }
+	public Object visit(Struct node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getStructfield() != null)
+			for (StructField child : node.getStructfield())
+				child.accept(this, param);
+
+		return null;
+	}
+
+	//	class StructField { String name;  Type type; }
+	public Object visit(StructField node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getType() != null)
+			node.getType().accept(this, param);
+
+		return null;
+	}
+
+	//	class VarDef { String name;  Type type; }
+	public Object visit(VarDef node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getType() != null)
+			node.getType().accept(this, param);
+
+		return null;
+	}
+
+	//	class Func { String name;  List<VarDef> defineFuncParams;  Type type;  List<VarDef> bodyDefs;  List<Statement> bodyStmts; }
+	public Object visit(Func node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getDefineFuncParams() != null)
+			for (VarDef child : node.getDefineFuncParams())
+				child.accept(this, param);
+
+		if (node.getType() != null)
+			node.getType().accept(this, param);
+
+		if (node.getBodyDefs() != null)
+			for (VarDef child : node.getBodyDefs())
+				child.accept(this, param);
+
+		if (node.getBodyStmts() != null)
+			for (Statement child : node.getBodyStmts())
+				child.accept(this, param);
+
+		return null;
+	}
+
+	//	class Print { String printType;  Expression expression; }
+	public Object visit(Print node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getExpression() != null)
+			node.getExpression().accept(this, param);
+
+		return null;
+	}
+
+	//	class Assignment { Expression assigned;  Expression right; }
+	public Object visit(Assignment node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getAssigned() != null)
+			node.getAssigned().accept(this, param);
+
+		if (node.getRight() != null)
+			node.getRight().accept(this, param);
+
+		return null;
+	}
+
+	//	class Return { Expression returned; }
+	public Object visit(Return node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getReturned() != null)
+			node.getReturned().accept(this, param);
+
+		return null;
+	}
+
+	//	class FuncCall { String name;  List<Expression> parameters; }
+	public Object visit(FuncCall node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getParameters() != null)
+			for (Expression child : node.getParameters())
+				child.accept(this, param);
+
+		return null;
+	}
+
+	//	class Read { Expression writtedInto; }
+	public Object visit(Read node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getWrittedInto() != null)
+			node.getWrittedInto().accept(this, param);
+
+		return null;
+	}
+
+	//	class If { Expression enterCondition;  List<Statement> ifBody;  List<Statement> elseBody; }
+	public Object visit(If node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getEnterCondition() != null)
+			node.getEnterCondition().accept(this, param);
+
+		if (node.getIfBody() != null)
+			for (Statement child : node.getIfBody())
+				child.accept(this, param);
+
+		if (node.getElseBody() != null)
+			for (Statement child : node.getElseBody())
+				child.accept(this, param);
+
+		return null;
+	}
+
+	//	class While { Expression stopCondition;  List<Statement> body; }
+	public Object visit(While node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getStopCondition() != null)
+			node.getStopCondition().accept(this, param);
+
+		if (node.getBody() != null)
+			for (Statement child : node.getBody())
+				child.accept(this, param);
+
+		return null;
+	}
+
+	//	class ExpressionPointAccess { Expression left;  String right; }
+	public Object visit(ExpressionPointAccess node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getLeft() != null)
+			node.getLeft().accept(this, param);
+
+		return null;
+	}
+
+	//	class ExpressionArrayAccess { Expression array;  Expression accessPosition; }
+	public Object visit(ExpressionArrayAccess node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getArray() != null)
+			node.getArray().accept(this, param);
+
+		if (node.getAccessPosition() != null)
+			node.getAccessPosition().accept(this, param);
+
+		return null;
+	}
+
+	//	class ExpressionFuncAccess { String name;  List<Expression> parameters; }
+	public Object visit(ExpressionFuncAccess node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getParameters() != null)
+			for (Expression child : node.getParameters())
+				child.accept(this, param);
+
+		return null;
+	}
+
+	//	class Parse { Type to;  Expression from; }
+	public Object visit(Parse node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getTo() != null)
+			node.getTo().accept(this, param);
+
+		if (node.getFrom() != null)
+			node.getFrom().accept(this, param);
+
+		return null;
+	}
+
+
+	//	class ArithmeticExpression { Expression left;  String op;  Expression right; }
+	public Object visit(ArithmeticExpression node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getLeft() != null)
+			node.getLeft().accept(this, param);
+
+		if (node.getRight() != null)
+			node.getRight().accept(this, param);
+
+		return null;
+	}
+
+	//	class BooleanExpression { Expression left;  String comparison;  Expression right; }
+	public Object visit(BooleanExpression node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getLeft() != null)
+			node.getLeft().accept(this, param);
+
+		if (node.getRight() != null)
+			node.getRight().accept(this, param);
+
+		return null;
+	}
+
+	//	class BooleanOfBooleansExpr { Expression left;  String comparison;  Expression right; }
+	public Object visit(BooleanOfBooleansExpr node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getLeft() != null)
+			node.getLeft().accept(this, param);
+
+		if (node.getRight() != null)
+			node.getRight().accept(this, param);
+
+		return null;
+	}
+
+	//	class Negate { Expression negated; }
+	public Object visit(Negate node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getNegated() != null)
+			node.getNegated().accept(this, param);
+
+		return null;
+	}
+
+	//	class Variable { String name; }
+	public Object visit(Variable node, Object param) {
+		return null;
+	}
+
+	//	class IntConstant { String value; }
+	public Object visit(IntConstant node, Object param) {
+		return null;
+	}
+
+	//	class FloatConstant { String value; }
+	public Object visit(FloatConstant node, Object param) {
+		return null;
+	}
+
+	//	class CharConstant { String value; }
+	public Object visit(CharConstant node, Object param) {
+		return null;
+	}
+
+	//	class IntType {  }
+	public Object visit(IntType node, Object param) {
+		return null;
+	}
+
+	//	class FloatType {  }
+	public Object visit(FloatType node, Object param) {
+		return null;
+	}
+
+	//	class CharType {  }
+	public Object visit(CharType node, Object param) {
+		return null;
+	}
+
+	//	class StructType { String name; }
+	public Object visit(StructType node, Object param) {
+		return null;
+	}
+
+	//	class ArrayType { IntConstant size;  Type type; }
+	public Object visit(ArrayType node, Object param) {
+
+		// super.visit(node, param);
+
+		if (node.getSize() != null)
+			node.getSize().accept(this, param);
+
+		if (node.getType() != null)
+			node.getType().accept(this, param);
+
+		return null;
+	}
+}

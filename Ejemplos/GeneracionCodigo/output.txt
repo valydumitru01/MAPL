@@ -1,0 +1,712 @@
+#source "prueba.txt"
+call main
+halt
+'type Pareja{
+'	entero:int
+'	caracter:char
+'}
+'type Empleado{
+'	edad:int
+'}
+'type Empresa{
+'	empleados:array
+'}
+	
+'Func
+#line 22
+p: 
+	enter 0
+	
+	ret 0,0,0
+	
+'Func
+#line 39
+f: 
+	enter 7
+	
+	'Assignment
+	#line 30
+	pusha BP
+	pushi -4
+	addi
+	pusha BP
+	pushi 6
+	addi
+	loadf
+	pushf 10.0
+	mulf
+	storef
+	
+	'Assignment
+	#line 31
+	pusha BP
+	pushi -5
+	addi
+	pushb 48
+	storeb
+	
+	'If
+	#line 37
+	pusha BP
+	pushi 4
+	addi
+	loadi
+	push 256
+	lti
+	jz else0
+	
+	'Assignment
+	#line 33
+	pusha BP
+	pushi -5
+	addi
+	pusha BP
+	pushi 4
+	addi
+	loadi
+	i2b
+	storeb
+	
+	'Assignment
+	#line 34
+	pusha BP
+	pushi -7
+	addi
+	pusha BP
+	pushi -5
+	addi
+	loadb
+	b2i
+	storei
+	jmp endif0
+	else0:
+	
+	'Assignment
+	#line 37
+	pusha BP
+	pushi -7
+	addi
+	pusha BP
+	pushi -4
+	addi
+	loadf
+	f2i
+	storei
+	endif0:
+	
+	'Return
+	#line 39
+	pusha BP
+	pushi -7
+	addi
+	loadi
+	ret 2,7,6
+	
+'Func
+#line 54
+inicializa: 
+	enter 2
+	
+	'Assignment
+	#line 46
+	pusha 11
+	push 0
+	pushi 6
+	muli
+	addi
+	push 0
+	pushi 2
+	muli
+	addi
+	push 0
+	storei
+	
+	'Assignment
+	#line 47
+	pusha 11
+	push 0
+	pushi 6
+	muli
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	push 1
+	storei
+	
+	'Assignment
+	#line 48
+	pusha 11
+	push 0
+	pushi 6
+	muli
+	addi
+	push 2
+	pushi 2
+	muli
+	addi
+	push 1
+	storei
+	
+	'Assignment
+	#line 49
+	pusha BP
+	pushi -2
+	addi
+	push 1
+	storei
+	
+	'While
+	#line 54
+	while0:
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 8
+	lti
+	jz endwhile0
+	
+	'Assignment
+	#line 51
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 6
+	muli
+	addi
+	push 0
+	pushi 2
+	muli
+	addi
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	subi
+	pushi 6
+	muli
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	loadi
+	storei
+	
+	'Assignment
+	#line 52
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 6
+	muli
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	subi
+	pushi 6
+	muli
+	addi
+	push 2
+	pushi 2
+	muli
+	addi
+	loadi
+	storei
+	
+	'Assignment
+	#line 53
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 6
+	muli
+	addi
+	push 2
+	pushi 2
+	muli
+	addi
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 6
+	muli
+	addi
+	push 0
+	pushi 2
+	muli
+	addi
+	loadi
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 6
+	muli
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	loadi
+	addi
+	storei
+	
+	'Assignment
+	#line 54
+	pusha BP
+	pushi -2
+	addi
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	addi
+	storei
+	jmp while0
+	endwhile0:
+	
+	ret 0,2,0
+	
+'Func
+#line 110
+main: 
+	enter 4
+	
+	'FuncCall
+	#line 64
+	call p
+	
+	'Assignment
+	#line 66
+	pusha BP
+	pushi -2
+	addi
+	push 0
+	storei
+	
+	'Assignment
+	#line 67
+	pusha 0
+	pushi 2
+	addi
+	pushb 48
+	storeb
+	
+	'Assignment
+	#line 68
+	pusha 0
+	pushi 0
+	addi
+	pushb 48
+	b2i
+	storei
+	
+	'Print
+	#line 70
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	i2f
+	pusha 0
+	pushi 2
+	addi
+	loadb
+	b2i
+	call f
+	pushb 10
+	outb
+	outi
+	
+	'FuncCall
+	#line 71
+	pushf 1.3
+	push 2
+	call f
+	popi
+	
+	'FuncCall
+	#line 73
+	call inicializa
+	
+	'Assignment
+	#line 74
+	pusha BP
+	pushi -2
+	addi
+	push 0
+	storei
+	
+	'While
+	#line 86
+	while1:
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 8
+	lti
+	jz endwhile1
+	
+	'Print
+	#line 76
+	pushb 40
+	outb
+	
+	'Print
+	#line 77
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	addi
+	outi
+	
+	'Print
+	#line 78
+	pushb 41
+	outb
+	
+	'Print
+	#line 79
+	pushb 32
+	outb
+	
+	'Print
+	#line 80
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 6
+	muli
+	addi
+	push 0
+	pushi 2
+	muli
+	addi
+	loadi
+	outi
+	
+	'Print
+	#line 81
+	pushb 43
+	outb
+	
+	'Print
+	#line 82
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 6
+	muli
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	loadi
+	outi
+	
+	'Print
+	#line 83
+	pushb 61
+	outb
+	
+	'Print
+	#line 84
+	pusha 11
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 6
+	muli
+	addi
+	push 2
+	pushi 2
+	muli
+	addi
+	loadi
+	outi
+	
+	'Print
+	#line 85
+	pushb 10
+	outb
+	
+	'Assignment
+	#line 86
+	pusha BP
+	pushi -2
+	addi
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	addi
+	storei
+	jmp while1
+	endwhile1:
+	
+	'Assignment
+	#line 89
+	pusha 3
+	push 1
+	pushi 4
+	muli
+	addi
+	pushi 0
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	pushi 0
+	addi
+	push 56
+	storei
+	
+	'Print
+	#line 90
+	pusha 3
+	push 1
+	pushi 4
+	muli
+	addi
+	pushi 0
+	addi
+	push 1
+	pushi 2
+	muli
+	addi
+	pushi 0
+	addi
+	loadi
+	pushb 10
+	outb
+	outi
+	
+	'Assignment
+	#line 92
+	pusha BP
+	pushi -2
+	addi
+	push 0
+	storei
+	
+	'While
+	#line 99
+	while2:
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 2
+	lti
+	jz endwhile2
+	
+	'Assignment
+	#line 94
+	pusha BP
+	pushi -4
+	addi
+	push 0
+	storei
+	
+	'While
+	#line 97
+	while3:
+	pusha BP
+	pushi -4
+	addi
+	loadi
+	push 2
+	lti
+	jz endwhile3
+	
+	'Assignment
+	#line 96
+	pusha 3
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 4
+	muli
+	addi
+	pushi 0
+	addi
+	pusha BP
+	pushi -4
+	addi
+	loadi
+	pushi 2
+	muli
+	addi
+	pushi 0
+	addi
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pusha BP
+	pushi -4
+	addi
+	loadi
+	addi
+	storei
+	
+	'Assignment
+	#line 97
+	pusha BP
+	pushi -4
+	addi
+	pusha BP
+	pushi -4
+	addi
+	loadi
+	push 1
+	addi
+	storei
+	jmp while3
+	endwhile3:
+	
+	'Assignment
+	#line 99
+	pusha BP
+	pushi -2
+	addi
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	addi
+	storei
+	jmp while2
+	endwhile2:
+	
+	'Assignment
+	#line 103
+	pusha BP
+	pushi -2
+	addi
+	push 0
+	storei
+	
+	'While
+	#line 110
+	while4:
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 2
+	lti
+	jz endwhile4
+	
+	'Assignment
+	#line 105
+	pusha BP
+	pushi -4
+	addi
+	push 0
+	storei
+	
+	'While
+	#line 108
+	while5:
+	pusha BP
+	pushi -4
+	addi
+	loadi
+	push 2
+	lti
+	jz endwhile5
+	
+	'Print
+	#line 107
+	pusha 3
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	pushi 4
+	muli
+	addi
+	pushi 0
+	addi
+	pusha BP
+	pushi -4
+	addi
+	loadi
+	pushi 2
+	muli
+	addi
+	pushi 0
+	addi
+	loadi
+	outi
+	pushb 32
+	outb
+	
+	'Assignment
+	#line 108
+	pusha BP
+	pushi -4
+	addi
+	pusha BP
+	pushi -4
+	addi
+	loadi
+	push 1
+	addi
+	storei
+	jmp while5
+	endwhile5:
+	
+	'Assignment
+	#line 110
+	pusha BP
+	pushi -2
+	addi
+	pusha BP
+	pushi -2
+	addi
+	loadi
+	push 1
+	addi
+	storei
+	jmp while4
+	endwhile4:
+	
+	ret 0,4,0
